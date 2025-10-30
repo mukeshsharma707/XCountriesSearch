@@ -59,7 +59,7 @@ setData(filtered);
         {data.map((img)=>{
           return <div className='countryCard' key={img.common} style={{border:'1px solid black', margin:'10px', padding:'10px', height:'150px', width:'150px', display:'flex', flexWrap:'wrap'}}>
             <img src={img.png} alt={img.common} style={{height:'100px', width:'100%'}}/>
-            <h3 style={{height:'50px', width:'100%'}}>{img.common}</h3>
+            <h2 style={{height:'50px', width:'100%'}}>{img.common}</h2>
             
    </div>         
         })}
