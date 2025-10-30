@@ -58,7 +58,7 @@ setData(filtered);
       <div style={{display:'flex',flexDirection:'row', flexWrap:'wrap', justifyContent:'center'}}>
         {data.map((img)=>{
           return <div className='countryCard' key={img.common} style={{border:'1px solid black', margin:'10px', padding:'10px', height:'150px', width:'150px', display:'flex', flexWrap:'wrap'}}>
-            <img src={img.png} alt="country-flag" style={{height:'100px', width:'100%'}}/>
+            <img src={img.png} alt={img.common} style={{height:'100px', width:'100%'}}/>
             <h3 style={{height:'50px', width:'100%'}}>{img.common}</h3>
             
    </div>         
