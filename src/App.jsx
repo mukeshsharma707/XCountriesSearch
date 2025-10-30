@@ -8,11 +8,17 @@ function App() {
   const [data, setData] = useState([]);
   const [text,setText]=useState('');
   const [countries,setCountries]=useState([]);
+  
 const fetchData=async()=>{
+  try{
   const result=await axios.get('https://countries-search-data-prod-812920491762.asia-south1.run.app/countries');
 console.log(result.data);
 setData(result.data);
 setCountries(result.data);
+  }catch(err)
+  {
+    console.log(err.message)
+  }
 }
 
 const handleChange=(e)=>{
@@ -47,11 +53,11 @@ setData(filtered);
   return (
     <>
       <div>
-        <input type="text" onChange={handleChange} placeholder="Type something..." style={{padding:'10px', border:'solid 1px black', width:'200px', marginBottom:'10px'}} />
+        <input type="text" onChange={handleChange} placeholder="Search for Countries..." style={{padding:'10px', border:'solid 1px black', width:'200px', marginBottom:'10px'}} />
       </div>
       <div style={{display:'flex',flexDirection:'row', flexWrap:'wrap', justifyContent:'center'}}>
         {data.map((img)=>{
-          return <div key={img.common} style={{border:'1px solid black', margin:'10px', padding:'10px', height:'150px', width:'150px'}}>
+          return <div className='countryCard' key={img.common} style={{border:'1px solid black', margin:'10px', padding:'10px', height:'150px', width:'150px', display:'flex', flexWrap:'wrap'}}>
             <img src={img.png} alt="country-flag" style={{height:'100px', width:'100%'}}/>
             <h3 style={{height:'50px', width:'100%'}}>{img.common}</h3>
             
